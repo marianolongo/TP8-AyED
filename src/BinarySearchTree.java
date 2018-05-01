@@ -132,7 +132,7 @@ public class BinarySearchTree<T extends Comparable> {
             while(nodeCount > 0){
                 DoubleNode<T> node = queue.peek();
                 if(node.elem != null) {
-                    System.out.println(node.elem);
+                    System.out.println(node.elem.toString());
                 }
 
                 queue.dequeue();

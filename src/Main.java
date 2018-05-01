@@ -12,9 +12,8 @@ public class Main {
         lamplist.add(lamp2);
         lamplist.add(lamp3);
         lamplist.add(lamp4);
-        BinarySearchTree bst=new BinarySearchTree<>();
-        bst.transformList(lamplist);
-        if (bst.getRoot()!= null) System.out.println("Esta Bien");
+        BinarySearchTree<Lamp> bst=new BinarySearchTree<>();
+        bst = bst.transformList(lamplist);
         bst.printLevelOrder(bst.getRoot());
     }
 }

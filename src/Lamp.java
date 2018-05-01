@@ -19,4 +19,9 @@ public class Lamp implements Comparable<Lamp>{
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    @Override
+    public String toString() {
+        return lampType + " " + "quantity= " + quantity;
+    }
 }
