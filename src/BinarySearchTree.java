@@ -52,4 +52,41 @@ public class BinarySearchTree<T extends Comparable> {
         }
         return result;
     }
+
+    public void remove(T x){
+        root = remove(root, x);
+    }
+
+    private DoubleNode<T> remove(DoubleNode<T> t, T x) {
+        if (x.compareTo(t.elem) < 0)
+            t.left = remove(t.left, x);
+        else if (x.compareTo(t.elem) > 0)
+            t.right = remove(t.right, x);
+        else
+        if (t.right != null && t.right != null ) {
+            t.elem = getMin(t.right).elem;
+            t.right = eliminarMin(t.right);
+        }
+        else if (t.left != null)
+            t = t.left;
+        else
+            t = t.right;
+        return t;
+    }
+
+    private DoubleNode<T> getMin(DoubleNode<T> t){
+        if (t.left == null)
+            return t;
+        else
+            return getMin(t.left);
+    }
+
+    private DoubleNode<T> eliminarMin(DoubleNode<T> t){
+        if (t.left != null)
+            t.left = eliminarMin(t.left);
+        else
+            t = t.left;
+        return t;
+    }
+
 }
