@@ -102,7 +102,13 @@ public class BinarySearchTree<T extends Comparable> {
             return search(node.right, elem);
     }
 
-    public void modifyQuantity(int quantity, T lamp){
-        if(search(lamp))
+    public void modifyQuantity(int quantity, Lamp lamp){
+        if(contains(lamp)){
+            this.search(lamp)
+        }
+    }
+
+    public boolean contains(T elem){
+        return search(elem) == elem;
     }
 }

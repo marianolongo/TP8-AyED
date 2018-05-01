@@ -15,4 +15,8 @@ public class Lamp implements Comparable<Lamp>{
     public int compareTo(Lamp lamp) {
         return this.lampCode.compareTo(lamp.lampCode);
     }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }
