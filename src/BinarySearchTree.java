@@ -114,7 +114,7 @@ public class BinarySearchTree<T extends Comparable> {
         return search(elem) == elem;
     }
 
-    public void printLevelOrder() {
+    public void printLevelOrder(DoubleNode root) {
 
         if(root == null)
             return;
