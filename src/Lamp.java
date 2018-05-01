@@ -22,6 +22,6 @@ public class Lamp implements Comparable<Lamp>{
 
     @Override
     public String toString() {
-        return lampType + " " + "quantity= " + quantity;
+        return lampType + " " + "quantity = " + quantity;
     }
 }
