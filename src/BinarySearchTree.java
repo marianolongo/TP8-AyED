@@ -1,10 +1,11 @@
+import java.util.List;
+
 public class BinarySearchTree<T extends Comparable> {
     private DoubleNode<T> root;
 
     public BinarySearchTree() {
         root = null;
     }
-
 
     public void insert(T x) {
         root = insert(root, x);
@@ -39,5 +40,16 @@ public class BinarySearchTree<T extends Comparable> {
         BinarySearchTree<T> t = new BinarySearchTree<>();
         t.root = root.right;
         return t;
+    }
+
+    public BinarySearchTree<T> transformList(List<T> list){
+        BinarySearchTree<T> result = new BinarySearchTree<>();
+        if(list.size() == 0){
+            return result;
+        }
+        for (T elem:list) {
+            result.insert(elem);
+        }
+        return result;
     }
 }
