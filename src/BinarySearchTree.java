@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class BinarySearchTree<T extends Comparable> {
     private DoubleNode<T> root;
@@ -102,13 +103,47 @@ public class BinarySearchTree<T extends Comparable> {
             return search(node.right, elem);
     }
 
-    public void modifyQuantity(int quantity, Lamp lamp){
-        if(contains(lamp)){
-            this.search(lamp)
+    public void modifyQuantity(BinarySearchTree<Lamp> tree, int quantity, Lamp lamp){
+        if(tree.contains(lamp)){
+            tree.search(lamp).setQuantity(quantity);
         }
+        throw new NoSuchElementException("Lamp not found");
     }
 
     public boolean contains(T elem){
         return search(elem) == elem;
+    }
+
+    public void printLevelOrder() {
+
+        if(root == null)
+            return;
+
+        Queue<DoubleNode> queue = new Queue<>();
+        queue.enqueue(root);
+
+        while(true)
+        {
+
+            int nodeCount = queue.getSize();
+            if(nodeCount == 0)
+                break;
+
+            while(nodeCount > 0){
+                DoubleNode<T> node = queue.peek();
+                if(node.elem != null) {
+                    System.out.println(node.elem);
+                }
+
+                queue.dequeue();
+                if(node.left != null)
+                    queue.enqueue(node.left);
+                if(node.right != null)
+                    queue.enqueue(node.right);
+                nodeCount--;
+
+            }
+            System.out.println();
+        }
     }
 }
