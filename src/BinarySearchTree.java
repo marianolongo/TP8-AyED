@@ -53,40 +53,40 @@ public class BinarySearchTree<T extends Comparable> {
         return result;
     }
 
-    public void remove(T x){
-        root = remove(root, x);
+    public void remove(T elem){
+        root = remove(root, elem);
     }
 
-    private DoubleNode<T> remove(DoubleNode<T> t, T x) {
-        if (x.compareTo(t.elem) < 0)
-            t.left = remove(t.left, x);
-        else if (x.compareTo(t.elem) > 0)
-            t.right = remove(t.right, x);
+    private DoubleNode<T> remove(DoubleNode<T> node, T elem) {
+        if (elem.compareTo(node.elem) < 0)
+            node.left = remove(node.left, elem);
+        else if (elem.compareTo(node.elem) > 0)
+            node.right = remove(node.right, elem);
         else
-        if (t.right != null && t.right != null ) {
-            t.elem = getMin(t.right).elem;
-            t.right = eliminarMin(t.right);
+        if (node.right != null && node.right != null ) {
+            node.elem = getMin(node.right).elem;
+            node.right = eliminarMin(node.right);
         }
-        else if (t.left != null)
-            t = t.left;
+        else if (node.left != null)
+            node = node.left;
         else
-            t = t.right;
-        return t;
+            node = node.right;
+        return node;
     }
 
-    private DoubleNode<T> getMin(DoubleNode<T> t){
-        if (t.left == null)
-            return t;
+    private DoubleNode<T> getMin(DoubleNode<T> node){
+        if (node.left == null)
+            return node;
         else
-            return getMin(t.left);
+            return getMin(node.left);
     }
 
-    private DoubleNode<T> eliminarMin(DoubleNode<T> t){
-        if (t.left != null)
-            t.left = eliminarMin(t.left);
+    private DoubleNode<T> eliminarMin(DoubleNode<T> node){
+        if (node.left != null)
+            node.left = eliminarMin(node.left);
         else
-            t = t.left;
-        return t;
+            node = node.left;
+        return node;
     }
 
 }
