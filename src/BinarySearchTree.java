@@ -89,4 +89,20 @@ public class BinarySearchTree<T extends Comparable> {
         return node;
     }
 
+    public T search(T elem){
+        return search(root, elem).elem;
+    }
+
+    private DoubleNode<T> search(DoubleNode<T> node, T elem){
+        if (elem.compareTo( node.elem)== 0)
+            return node;
+        else if (elem.compareTo( node.elem)< 0)
+            return search(node.left, elem);
+        else
+            return search(node.right, elem);
+    }
+
+    public void modifyQuantity(int quantity, T lamp){
+        if(search(lamp))
+    }
 }
