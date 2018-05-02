@@ -95,6 +95,7 @@ public class BinarySearchTree<T extends Comparable> {
     }
 
     private DoubleNode<T> search(DoubleNode<T> node, T elem){
+        if(node == null) throw new NoSuchElementException("Node not found");
         if (elem.compareTo( node.elem)== 0)
             return node;
         else if (elem.compareTo( node.elem)< 0)
@@ -104,10 +105,13 @@ public class BinarySearchTree<T extends Comparable> {
     }
 
     public void modifyQuantity(BinarySearchTree<Lamp> tree, int quantity, Lamp lamp){
-        if(tree.contains(lamp)){
-            tree.search(lamp).setQuantity(quantity);
+        try {
+            if (tree.contains(lamp)) {
+                tree.search(lamp).setQuantity(quantity);
+            }
+        }catch (NoSuchElementException e){
+            throw new NoSuchElementException("Lamp not found");
         }
-        throw new NoSuchElementException("Lamp not found");
     }
 
     public boolean contains(T elem){
