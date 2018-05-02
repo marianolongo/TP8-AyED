@@ -1,8 +1,8 @@
 public class Lamp implements Comparable<Lamp>{
-    String lampCode;
-    int watts;
-    String lampType;
-    int quantity;
+    private String lampCode;
+    private int watts;
+    private String lampType;
+    private int quantity;
 
     public Lamp(String lampCode, int watts, String lampType, int quantity) {
         this.lampCode = lampCode;
@@ -11,13 +11,26 @@ public class Lamp implements Comparable<Lamp>{
         this.quantity = quantity;
     }
 
-    @Override
-    public int compareTo(Lamp lamp) {
-        return this.lampCode.compareTo(lamp.lampCode);
-    }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public void setLampCode(String lampCode) {
+        this.lampCode = lampCode;
+    }
+
+    public void setWatts(int watts) {
+        this.watts = watts;
+    }
+
+    public void setLampType(String lampType) {
+        this.lampType = lampType;
+    }
+
+    @Override
+    public int compareTo(Lamp lamp) {
+        return this.lampCode.compareTo(lamp.lampCode);
     }
 
     @Override
