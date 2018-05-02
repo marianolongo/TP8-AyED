@@ -107,7 +107,7 @@ public class BinarySearchTree<T extends Comparable> {
         if(tree.contains(lamp)){
             tree.search(lamp).setQuantity(quantity);
         }
-        throw new NoSuchElementException("Lamp not found");
+         else throw new NoSuchElementException("Lamp not found");
     }
 
     public boolean contains(T elem){

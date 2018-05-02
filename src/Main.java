@@ -15,5 +15,19 @@ public class Main {
         BinarySearchTree<Lamp> bst=new BinarySearchTree<>();
         bst = bst.transformList(lamplist);
         bst.printLevelOrder(bst.getRoot());
+        System.out.println("Cambio la cantidad de sol a 2 para ver si funciona el modify");
+        System.out.println();
+        bst.modifyQuantity(bst,2,lamp3);
+        bst.printLevelOrder(bst.getRoot());
+        /*System.out.println("Prueo eliminar una lampara para ver si funicona el remove");
+        System.out.println();
+        bst.remove(lamp1);
+        bst.printLevelOrder(bst.getRoot());*/
+        System.out.println("Pruebo agregar un elemento");
+        System.out.println();
+        Lamp lamp5= new Lamp("lamp05",2,"Farol",20);
+        bst.insert(lamp5);
+        bst.printLevelOrder(bst.getRoot());
+
     }
 }
