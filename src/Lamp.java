@@ -16,10 +16,6 @@ public class Lamp implements Comparable<Lamp>{
         this.quantity = quantity;
     }
 
-    public void setLampCode(String lampCode) {
-        this.lampCode = lampCode;
-    }
-
     public void setWatts(int watts) {
         this.watts = watts;
     }
@@ -35,6 +31,6 @@ public class Lamp implements Comparable<Lamp>{
 
     @Override
     public String toString() {
-        return lampType + "\nQuantity = " + quantity;
+        return lampType;
     }
 }
