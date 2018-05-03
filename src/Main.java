@@ -18,19 +18,53 @@ public class Main {
 //        bst.printInOrder();
 //    }
 
+//    public static void main(String[] args) {
+//        List<Lamp> lampList = new ArrayList<>();
+//        Random random = new Random();
+//        for (int i = 0; i < 100; i++) {
+//            String lampCode = "" + (char)( random.nextInt(25) + 97) + (char)( random.nextInt(25) + 97) + (char)( random.nextInt(25) + 97);
+//            int watts = random.nextInt(100);
+//            String lampType = lampCode;
+//            int quantity = random.nextInt(10000);
+//            Lamp lamp = new Lamp(lampCode,watts,lampType,quantity);
+//            lampList.add(lamp);
+//        }
+//        BinarySearchTree<Lamp> bst = new BinarySearchTree<>();
+//        bst = bst.transformList(lampList);
+//
+//        bst.printInOrder();
+//    }
+
+//    public static void main(String[] args) {
+//        BinarySearchTree<Lamp> bst = new BinarySearchTree<>();
+//        Random random = new Random();
+//        for (int i = 0; i < 100; i++) {
+//            String lampCode = "" + (char)( random.nextInt(25) + 97) + (char)( random.nextInt(25) + 97) + (char)( random.nextInt(25) + 97);
+//            int watts = random.nextInt(100);
+//            String lampType = lampCode;
+//            int quantity = random.nextInt(10000);
+//            Lamp lamp = new Lamp(lampCode,watts,lampType,quantity);
+//            bst.insert(lamp);
+//        }
+//    }
+
     public static void main(String[] args) {
-        List<Lamp> lampList = new ArrayList<>();
-        Random random = new Random();
-        for (int i = 0; i < 100; i++) {
-            String lampCode = "" + (char)( random.nextInt(25) + 97) + (char)( random.nextInt(25) + 97) + (char)( random.nextInt(25) + 97);
-            int watts = random.nextInt(100);
-            String lampType = lampCode;
-            int quantity = random.nextInt(10000);
-            Lamp lamp = new Lamp(lampCode,watts,lampType,quantity);
-            lampList.add(lamp);
-        }
         BinarySearchTree<Lamp> bst = new BinarySearchTree<>();
-        bst = bst.transformList(lampList);
-        bst.printInOrder();
+        Lamp abc = new Lamp("abc",100,"abc",1000);
+        Lamp are = new Lamp("are",10,"are",1000);
+        Lamp xss = new Lamp("xss",20,"xss",1000);
+        Lamp usd = new Lamp("usd",400,"usd",1000);
+        Lamp mnb = new Lamp("mnb",70,"mnb",1000);
+        Lamp aaa = new Lamp("aaa",12,"aaa",1000);
+        Lamp abb = new Lamp("abb",75,"abb",1000);
+        bst.insert(abc);
+        bst.insert(are);
+        bst.insert(xss);
+        bst.insert(usd);
+        bst.insert(mnb);
+        bst.insert(aaa);
+        bst.insert(abb);
+        bst.remove(abc);
+        System.out.println("hola");
     }
 }

@@ -59,20 +59,28 @@ public class BinarySearchTree<T extends Comparable> {
     }
 
     private DoubleNode<T> remove(DoubleNode<T> node, T elem) {
+        /* Base Case: If the tree is empty */
+        if (node == null) return node;
+
+        /* Otherwise, recur down the tree */
         if (elem.compareTo(node.elem) < 0)
             node.left = remove(node.left, elem);
         else if (elem.compareTo(node.elem) > 0)
             node.right = remove(node.right, elem);
-        else
-        if (node.right != null) {
+
+        else {
+            if (node.left == null)
+                return node.right;
+            else if (node.right == null)
+                return node.left;
+
             node.elem = getMin(node.right).elem;
-            node.right = removeMin(node.right);
+
+            node.right = remove(node.right, node.elem);
         }
-        else if (node.left != null)
-            node = node.left;
-        else
-            node = node.right;
+
         return node;
+
     }
 
     private DoubleNode<T> getMin(DoubleNode<T> node){
