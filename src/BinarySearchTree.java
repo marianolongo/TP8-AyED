@@ -59,20 +59,28 @@ public class BinarySearchTree<T extends Comparable> {
     }
 
     private DoubleNode<T> remove(DoubleNode<T> node, T elem) {
+        /* Base Case: If the tree is empty */
+        if (node == null) return node;
+
+        /* Otherwise, recur down the tree */
         if (elem.compareTo(node.elem) < 0)
             node.left = remove(node.left, elem);
         else if (elem.compareTo(node.elem) > 0)
             node.right = remove(node.right, elem);
-        else
-        if (node.right != null && node.right != null ) {
+
+        else {
+            if (node.left == null)
+                return node.right;
+            else if (node.right == null)
+                return node.left;
+
             node.elem = getMin(node.right).elem;
-            node.right = eliminarMin(node.right);
+
+            node.right = remove(node.right, node.elem);
         }
-        else if (node.left != null)
-            node = node.left;
-        else
-            node = node.right;
+
         return node;
+
     }
 
     private DoubleNode<T> getMin(DoubleNode<T> node){
@@ -82,9 +90,9 @@ public class BinarySearchTree<T extends Comparable> {
             return getMin(node.left);
     }
 
-    private DoubleNode<T> eliminarMin(DoubleNode<T> node){
+    private DoubleNode<T> removeMin(DoubleNode<T> node){
         if (node.left != null)
-            node.left = eliminarMin(node.left);
+            node.left = removeMin(node.left);
         else
             node = node.left;
         return node;
@@ -95,6 +103,7 @@ public class BinarySearchTree<T extends Comparable> {
     }
 
     private DoubleNode<T> search(DoubleNode<T> node, T elem){
+        if(node == null) throw new NoSuchElementException("Node not found");
         if (elem.compareTo( node.elem)== 0)
             return node;
         else if (elem.compareTo( node.elem)< 0)
@@ -104,46 +113,46 @@ public class BinarySearchTree<T extends Comparable> {
     }
 
     public void modifyQuantity(BinarySearchTree<Lamp> tree, int quantity, Lamp lamp){
-        if(tree.contains(lamp)){
-            tree.search(lamp).setQuantity(quantity);
+        try {
+            if (tree.contains(lamp)) {
+                tree.search(lamp).setQuantity(quantity);
+            }
+        }catch (NoSuchElementException e){
+            throw new NoSuchElementException("Lamp not found");
         }
-         else throw new NoSuchElementException("Lamp not found");
+    }
+
+    public void mofidyName(BinarySearchTree<Lamp> tree, String name, Lamp lamp){
+        try {
+            if (tree.contains(lamp)) {
+                tree.search(lamp).setLampType(name);
+            }
+        }catch (NoSuchElementException e){
+            throw new NoSuchElementException("Lamp not found");
+        }
+    }
+
+    public void modifyWatts(BinarySearchTree<Lamp> tree, int watts, Lamp lamp){
+        try {
+            if (tree.contains(lamp)) {
+                tree.search(lamp).setWatts(watts);
+            }
+        }catch (NoSuchElementException e){
+            throw new NoSuchElementException("Lamp not found");
+        }
     }
 
     public boolean contains(T elem){
         return search(elem) == elem;
     }
 
-    public void printLevelOrder(DoubleNode root) {
+    public void printInOrder(){
+        printInOrder(root);
+    }
 
-        if(root == null)
-            return;
-
-        Queue<DoubleNode> queue = new Queue<>();
-        queue.enqueue(root);
-
-        while(true)
-        {
-
-            int nodeCount = queue.getSize();
-            if(nodeCount == 0)
-                break;
-
-            while(nodeCount > 0){
-                DoubleNode<T> node = queue.peek();
-                if(node.elem != null) {
-                    System.out.println(node.elem.toString());
-                }
-
-                queue.dequeue();
-                if(node.left != null)
-                    queue.enqueue(node.left);
-                if(node.right != null)
-                    queue.enqueue(node.right);
-                nodeCount--;
-
-            }
-            System.out.println();
-        }
+    private void printInOrder(DoubleNode<T> node) {
+        if(node.left != null) printInOrder(node.left);
+        System.out.println(node.elem);
+        if(node.right != null) printInOrder(node.right);
     }
 }
