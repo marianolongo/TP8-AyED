@@ -22,10 +22,17 @@ public class App {
                 lampTree.insert(new Lamp(lampCode, watts,lampType,quantity));
             }
             else if (line.equals("2")) {
-                System.out.println();
+                System.out.println("Enter the LAMPCODE of the lamp to remove: ");
+                String lampCode = bufferedReader.readLine();
+                lampTree.remove(new Lamp(lampCode));
             }
             else if (line.equals("3")){
-                System.exit(0);
+
+                System.out.println("What do you want to modify?");
+                System.out.println("a) Quantity" + "\n" + "b) Lamptype" + "\n" + "c) Watts");
+                if(line.equals("a")){
+
+                }
             }
             else{
                 System.out.println("Try again");

@@ -11,6 +11,9 @@ public class Lamp implements Comparable<Lamp>{
         this.quantity = quantity;
     }
 
+    public Lamp(String lampCode) {
+        this.lampCode = lampCode;
+    }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
