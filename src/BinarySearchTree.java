@@ -59,10 +59,8 @@ public class BinarySearchTree<T extends Comparable> {
     }
 
     private DoubleNode<T> remove(DoubleNode<T> node, T elem) {
-        /* Base Case: If the tree is empty */
         if (node == null) return node;
 
-        /* Otherwise, recur down the tree */
         if (elem.compareTo(node.elem) < 0)
             node.left = remove(node.left, elem);
         else if (elem.compareTo(node.elem) > 0)
@@ -75,7 +73,6 @@ public class BinarySearchTree<T extends Comparable> {
                 return node.left;
 
             node.elem = getMin(node.right).elem;
-
             node.right = remove(node.right, node.elem);
         }
 
@@ -99,48 +96,48 @@ public class BinarySearchTree<T extends Comparable> {
     }
 
     public T search(T elem){
-        return search(root, elem).elem;
+        return search(root, elem);
     }
 
-    private DoubleNode<T> search(DoubleNode<T> node, T elem){
+    private T search(DoubleNode<T> node, T elem){
         if(node == null) throw new NoSuchElementException("Node not found");
-        if (elem.compareTo( node.elem)== 0)
-            return node;
+        if (elem.compareTo(node.elem)== 0)
+            return node.elem;
         else if (elem.compareTo( node.elem)< 0)
             return search(node.left, elem);
         else
             return search(node.right, elem);
     }
 
-    public void modifyQuantity(BinarySearchTree<Lamp> tree, int quantity, Lamp lamp){
-        try {
-            if (tree.contains(lamp)) {
-                tree.search(lamp).setQuantity(quantity);
-            }
-        }catch (NoSuchElementException e){
-            throw new NoSuchElementException("Lamp not found");
-        }
-    }
-
-    public void mofidyName(BinarySearchTree<Lamp> tree, String name, Lamp lamp){
-        try {
-            if (tree.contains(lamp)) {
-                tree.search(lamp).setLampType(name);
-            }
-        }catch (NoSuchElementException e){
-            throw new NoSuchElementException("Lamp not found");
-        }
-    }
-
-    public void modifyWatts(BinarySearchTree<Lamp> tree, int watts, Lamp lamp){
-        try {
-            if (tree.contains(lamp)) {
-                tree.search(lamp).setWatts(watts);
-            }
-        }catch (NoSuchElementException e){
-            throw new NoSuchElementException("Lamp not found");
-        }
-    }
+//    public void modifyQuantity(BinarySearchTree<Lamp> tree, int quantity, Lamp lamp){
+//        try {
+//            if (tree.contains(lamp)) {
+//                tree.search(lamp).setQuantity(quantity);
+//            }
+//        }catch (NoSuchElementException e){
+//            throw new NoSuchElementException("Lamp not found");
+//        }
+//    }
+//
+//    public void mofidyName(BinarySearchTree<Lamp> tree, String name, Lamp lamp){
+//        try {
+//            if (tree.contains(lamp)) {
+//                tree.search(lamp).setLampType(name);
+//            }
+//        }catch (NoSuchElementException e){
+//            throw new NoSuchElementException("Lamp not found");
+//        }
+//    }
+//
+//    public void modifyWatts(BinarySearchTree<Lamp> tree, int watts, Lamp lamp){
+//        try {
+//            if (tree.contains(lamp)) {
+//                tree.search(lamp).setWatts(watts);
+//            }
+//        }catch (NoSuchElementException e){
+//            throw new NoSuchElementException("Lamp not found");
+//        }
+//    }
 
     public boolean contains(T elem){
         return search(elem) == elem;
