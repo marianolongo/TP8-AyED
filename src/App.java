@@ -31,6 +31,12 @@ public class App {
                 System.out.println("What do you want to modify?");
                 System.out.println("a) Quantity" + "\n" + "b) Lamptype" + "\n" + "c) Watts");
                 if(line.equals("a")){
+                    System.out.println("Enter the LAMPCODE of the lamp you wish to modify");
+                    String lampcode = bufferedReader.readLine();
+                    System.out.println("Enter the new QUANTITY for the selected lamp");
+                    int newQuantity = bufferedReader.read();
+                    lampTree.search(new Lamp(lampcode)).setQuantity(newQuantity);
+
 
                 }
             }

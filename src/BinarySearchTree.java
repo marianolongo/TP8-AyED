@@ -152,4 +152,5 @@ public class BinarySearchTree<T extends Comparable> {
         System.out.println(node.elem);
         if(node.right != null) printInOrder(node.right);
     }
+
 }
