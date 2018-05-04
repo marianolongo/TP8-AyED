@@ -34,6 +34,6 @@ public class Lamp implements Comparable<Lamp>{
 
     @Override
     public String toString() {
-        return lampType;
+        return "Lamp: " + lampType + " Quantity: " + quantity;
     }
 }

@@ -148,6 +148,7 @@ public class BinarySearchTree<T extends Comparable> {
     }
 
     private void printInOrder(DoubleNode<T> node) {
+        if(root == null) return;
         if(node.left != null) printInOrder(node.left);
         System.out.println(node.elem);
         if(node.right != null) printInOrder(node.right);
