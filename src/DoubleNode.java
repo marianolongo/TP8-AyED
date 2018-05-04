@@ -10,6 +10,7 @@ public class DoubleNode<T>{
         this.right = right;
         this.left = left;
     }
+
     public DoubleNode(T elem, DoubleNode<T> right, DoubleNode<T> left, DoubleNode<T> father) {
         this.elem = elem;
         this.right = right;

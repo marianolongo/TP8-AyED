@@ -109,36 +109,6 @@ public class BinarySearchTree<T extends Comparable> {
             return search(node.right, elem);
     }
 
-//    public void modifyQuantity(BinarySearchTree<Lamp> tree, int quantity, Lamp lamp){
-//        try {
-//            if (tree.contains(lamp)) {
-//                tree.search(lamp).setQuantity(quantity);
-//            }
-//        }catch (NoSuchElementException e){
-//            throw new NoSuchElementException("Lamp not found");
-//        }
-//    }
-//
-//    public void mofidyName(BinarySearchTree<Lamp> tree, String name, Lamp lamp){
-//        try {
-//            if (tree.contains(lamp)) {
-//                tree.search(lamp).setLampType(name);
-//            }
-//        }catch (NoSuchElementException e){
-//            throw new NoSuchElementException("Lamp not found");
-//        }
-//    }
-//
-//    public void modifyWatts(BinarySearchTree<Lamp> tree, int watts, Lamp lamp){
-//        try {
-//            if (tree.contains(lamp)) {
-//                tree.search(lamp).setWatts(watts);
-//            }
-//        }catch (NoSuchElementException e){
-//            throw new NoSuchElementException("Lamp not found");
-//        }
-//    }
-
     public boolean contains(T elem){
         return search(elem) == elem;
     }
